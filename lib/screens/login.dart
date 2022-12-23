@@ -21,7 +21,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Form(
                     key: formGlobalKey,
                     child: Column(children: [
-                      const Image(image: AssetImage('assets/images/Login.png')),
+                      const Image(image: AssetImage('assets/images/logo.png')),
                       TextFormField(
                         keyboardType: TextInputType.text,
                         validator: (value) {
