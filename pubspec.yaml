@@ -79,14 +79,12 @@ flutter:
   fonts:
     - family: Open Sans Serrif
       fonts:
-        - asset: assets/fonts/OpenSans-VariableFont.ttf
-        - asset: fonts/OpenSans-Italic-VariableFont_wdth.ttf
-          style: italic
+        - asset: assets/fonts/OpenSans-Italic-VariableFont.ttf
     - family: Montserrat
       fonts:
-        - asset: assets/fonts/Montserrat-Italic.ttf
-        - asset: fonts/Montserrat-VariableFont_wght.ttf
-          weight: 700
+
+        - asset: assets/fonts/Montserrat-VariableFont_wght.ttf
+      
   
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
