@@ -59,7 +59,7 @@ class _WearOsLoginState extends State<WearOsLogin> {
                             border: OutlineInputBorder(),
                             // hintText: 'username',
                             // hintStyle: TextStyle(fontSize: 10),
-                            labelText: 'Username',
+                            labelText: 'Usernames',
                             labelStyle: TextStyle(fontSize: 10),
                           ),
                           style: TextStyle(fontSize: 10),
@@ -92,7 +92,7 @@ class _WearOsLoginState extends State<WearOsLogin> {
                               );
                               _loginUser(user);
                             },
-                            child: const Text("login")),
+                            child: const Text("logIn")),
                       )
                     ],
                   ),

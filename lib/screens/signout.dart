@@ -173,7 +173,7 @@ class _SignOutState extends State<SignOut> {
                                   controller: passwordController,
                                   validator: (value) {
                                     if (value!.isEmpty) {
-                                      return 'Please enter your password';
+                                      return 'Please enter your desired password';
                                     }
                                     if (value.length < 8) {
                                       return 'Password must be at least 8 characters';

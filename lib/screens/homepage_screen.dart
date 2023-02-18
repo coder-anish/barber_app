@@ -197,7 +197,7 @@ class _HomePageState extends State<HomePage> {
                         });
                   } else {
                     return const Center(
-                      child: Text("No data"),
+                      child: Text("No datas"),
                     );
                   }
                 } else if (snapshot.connectionState ==

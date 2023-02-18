@@ -48,7 +48,7 @@ void main() {
       expect(actual, expectedResult);
     });
 
-    test("user product test", () async {
+    test("user products test", () async {
       bool expectedResult = true;
       String productId = "64006c703723af1243ee5535";
       String comment = "goddd";

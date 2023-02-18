@@ -100,14 +100,7 @@ class _SignInState extends State<SignIn> {
 
                   child: Image.asset("assets/image/banner-barber.png"),
 
-                  // child: Text(
-                  //   "Florashop 🌹",
-                  //   style: TextStyle(
-                  //     fontWeight: FontWeight.bold,
-                  //     color: Color.fromARGB(255, 241, 23, 23),
-                  //     fontSize: 32.0,
-                  //   ),
-                  // ),
+                 
                 ),
                 const SizedBox(height: 40.0),
                 AnimationWidget(
