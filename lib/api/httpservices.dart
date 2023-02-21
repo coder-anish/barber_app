@@ -3,7 +3,7 @@ import 'package:cybershop/util/url.dart';
 import 'package:dio/dio.dart';
 
 class HttpServices {
-  static final HttpServices _instance = HttpServices.internal();
+  static  final HttpServices _instance = HttpServices.internal();
   factory HttpServices() => _instance;
   HttpServices.internal();
   Dio? _dio;

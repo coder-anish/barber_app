@@ -71,7 +71,7 @@ class _OrderHistoryState extends State<OrderHistory> {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               CachedNetworkImage(
-                                imageUrl: product['productImage'],
+                                imageUrl: product['productImages'],
                                 fit: BoxFit.cover,
                                 height: 100,
                               ),

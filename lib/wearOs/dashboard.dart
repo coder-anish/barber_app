@@ -33,7 +33,7 @@ class _AllProductState extends State<AllProduct> {
                           return Column(
                             children: [
                               Text(
-                                "All Products",
+                                "All Product",
                                 style: TextStyle(
                                   fontSize: 15,
                                   color: Colors.green,

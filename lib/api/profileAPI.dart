@@ -7,7 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfileAPI {
   Future<ProfileResponse?> getprofile() async {
-    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    SharedPreferences  sharedPreferences = await SharedPreferences.getInstance();
 
     String? token = sharedPreferences.getString('token');
 

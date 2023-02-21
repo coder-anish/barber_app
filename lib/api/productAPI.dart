@@ -18,7 +18,7 @@ class ProductAPI {
 
       if (response.statusCode == 200) {
         print(response.data);
-        productResponse = ProductResponse.fromJson(response.data);
+        productResponse =  ProductResponse.fromJson(response.data);
       }
     } catch (e) {
       print(e.toString());

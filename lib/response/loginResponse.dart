@@ -7,11 +7,11 @@ class LoginResponse {
     this.token,
   });
   factory LoginResponse.fromJson(Map<String, dynamic> json) => LoginResponse(
-        success: json["success"],
+        success: json["successes"],
         token: json["token"],
       );
   Map<String, dynamic> toJson() => {
-        "success": success,
+        "successes": success,
         "token": token,
       };
 }
