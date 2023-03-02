@@ -1,7 +1,6 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:cybershop/object_box/ObjectBox.dart';
-import 'package:cybershop/screens/cart/cart_provider.dart';
-import 'package:cybershop/screens/cart/screen.dart';
+
 import 'package:cybershop/screens/navigation_screen.dart';
 import 'package:cybershop/screens/order_history/order_details.dart';
 import 'package:cybershop/screens/order_history/order_history.dart';
@@ -53,7 +52,7 @@ class MyApp extends StatelessWidget {
       child: Builder(
         builder: (BuildContext context) {
           return MaterialApp(
-            initialRoute: '/wear_login',
+            initialRoute: '/wear_loggin',
             routes: {
               '/': (context) => const SignIn(),
               '/signin': (context) => const SignIn(),
