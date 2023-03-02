@@ -1,120 +1,158 @@
+import 'package:barber_app/models/users.dart';
+import 'package:barber_app/repository/user_repo.dart';
 import 'package:flutter/material.dart';
+import 'package:motion_toast/motion_toast.dart';
 
-class SignupScreen extends StatefulWidget {
-  const SignupScreen({super.key});
-
-  @override
-  State<SignupScreen> createState() => _SignupScreenState();
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
+  @override  State<RegisterScreen> createState() => _RegisterScreenState();
 }
-
-class _SignupScreenState extends State<SignupScreen> {
-  final formGlobalKey = GlobalKey<FormState>();
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: const Text("Register Page"),
-        ),
-        body: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: SingleChildScrollView(
-                child: Form(
-                    key: formGlobalKey,
-                    child: Column(children: [
-                      const Image(
-                          image: AssetImage('assets/images/logo.png')),
-                      TextFormField(
-                        keyboardType: TextInputType.text,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter Email Address';
-                          }
-
-                          return null;
-                        },
-                        decoration: const InputDecoration(
-                            border: OutlineInputBorder(), labelText: 'Email'),
-                      ),
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      TextFormField(
-                        keyboardType: TextInputType.text,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please enter first name';
-                          }
-
-                          return null;
-                        },
-                        decoration: const InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: 'first name'),
-                      ),
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      TextFormField(
-                        obscureText: true,
-                        keyboardType: TextInputType.text,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please Enter last name';
-                          }
-
-                          return null;
-                        },
-                        decoration: const InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: 'last name'),
-                      ),
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      TextFormField(
-                        obscureText: true,
-                        keyboardType: TextInputType.text,
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Please Enter Your password';
-                          }
-
-                          return null;
-                        },
-                        decoration: const InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: 'Password'),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton(
-                            style: ButtonStyle(
-                                shape: MaterialStateProperty.all<
-                                        RoundedRectangleBorder>(
-                                    RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18.0),
-                            ))),
-                            onPressed: () {},
-                            child: const Text("Sign Up")),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      SizedBox(
-                        width: double.infinity,
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const Text('Already have an account?'),
-                              TextButton(
-                                  onPressed: () {},
-                                  child: const Text("Login Now"))
-                            ]),
-                      )
-                    ])))));
+class _RegisterScreenState extends State<RegisterScreen> {
+  final _key = GlobalKey<FormState>();
+  final _fnameController = TextEditingController(text: '');
+  final _lnameController = TextEditingController(text: '');
+  final _usernameController = TextEditingController(text: '');
+  final _passwordController = TextEditingController(text: '');
+  final _emailController = TextEditingController(text: '');
+  _showMessage(int status){
+    if(status > 0){
+      MotionToast.success(description: const Text('User Added Successfully'),
+      ).show(context);
+    }else{
+      MotionToast.error(description: const Text('Error adding user'))
+      .show(context);
+    }
   }
-}
+  _saveUser() async{
+    User user = User(
+      _fnameController.text,
+      _lnameController.text,
+      _usernameController.text,
+      _passwordController.text,
+      _emailController.text,
+    );
+    int status = await UserRepositoryImpl().addUser(user);
+    _showMessage(status);
+  }
+  @override  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Register'),
+      ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(8),
+            child: Form(
+              key: _key,
+              child: Column(
+                children: [
+                  Container(
+                    constraints: const BoxConstraints(maxHeight: 300,maxWidth: 500),
+                    child: const Image(
+                        image: AssetImage('assets/images/logo.png'),fit: BoxFit.cover,),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  TextFormField(
+                    controller: _fnameController,
+                    decoration: const InputDecoration(
+                      labelText: 'First Name',
+                    ),
+                    validator: ((value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter first name';
+                      }
+                      return null;
+                    }),
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  TextFormField(
+                    controller: _lnameController,
+                    decoration: const InputDecoration(
+                      labelText: 'Last Name',
+                    ),
+                    validator: ((value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter last name';
+                      }
+                      return null;
+                    }),
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  TextFormField(
+                    controller: _usernameController,
+                    decoration: const InputDecoration(
+                      labelText: 'Username',
+                    ),
+                    validator: ((value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter username';
+                      }
+                      return null;
+                    }),
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  TextFormField(
+                    controller: _passwordController,
+                    obscureText: true,
+                    decoration: const InputDecoration(
+                      labelText: 'Password',
+                    ),
+                    validator: ((value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter password';
+                      }
+                      return null;
+                    }),
+                  ),
+                  TextFormField(
+                      controller: _emailController,
+                      decoration: const InputDecoration(
+                        labelText: 'Email',
+                      )),
+                  const SizedBox(
+                    height: 25,
+                  ),
+                  SizedBox(
+                    height: 40,
+                    width: 250,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        if (_key.currentState!.validate()) {
+                          _saveUser();
+                        }
+                      },
+                      style: ButtonStyle(
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                                  RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18.0),
+                      ))),
+                      child: const Text(
+                        'Register',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontFamily: "Brand Bold",
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }}

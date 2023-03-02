@@ -1,5 +1,3 @@
-import 'package:barber_app/repository/user_repo.dart';
-import 'package:barber_app/screens/snackbar.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -13,22 +11,6 @@ class _LoginScreenState extends State<LoginScreen> {
   final _formGlobalKey = GlobalKey<FormState>();
   final _usernameController = TextEditingController();
   final _passwordController = TextEditingController();
-
-  _login() async {
-    final int islogin = await UserRepositoryImpl()
-        .signUp(_usernameController.text, _passwordController.text);
-    if (islogin>0) {
-      _goToAnotherPage();
-    } else {
-      _showMessage();
-    }
-  }
-  _goToAnotherPage() {
-    Navigator.pushReplacementNamed(context, '/dashboard');
-  }
-  _showMessage() {
-    showSnackbar(context, 'Invalid username or password', Colors.red);
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -92,10 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             onPressed: () {
                               print(_passwordController.text);
                               print(_usernameController.text);
-                              if(_formGlobalKey.currentState!.validate()){
-                              _login();
-
-                              }
+                              Navigator.pushNamed(context, '/dashboard');
 
                             },
                             child: const Text("Login")),

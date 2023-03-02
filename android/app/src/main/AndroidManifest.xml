@@ -1,9 +1,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.trimme.barber_app">
+    <uses-permission android:name="android.uses-permission.ACCESS_FINE_LOCATION"/>
+
+
+
    <application
         android:label="barber_app"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAd7OSBfIx3fWErJ0D8NuVcuiFGXB_OLIA"/>
+
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
