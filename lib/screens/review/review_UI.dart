@@ -74,7 +74,7 @@ class ReviewUI extends StatelessWidget {
                 rating: ratings,
                 size: 28.0,
                 color: Colors.orange,
-                borderColor: Colors.orange,
+                borderColor: Color.fromARGB(255, 218, 132, 3),
                 spacing: 0.0,
               ),
               SizedBox(

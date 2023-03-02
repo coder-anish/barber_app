@@ -132,7 +132,7 @@ class _SignOutState extends State<SignOut> {
                                   keyboardType: TextInputType.emailAddress,
                                   validator: (value) {
                                     if (value!.isEmpty) {
-                                      return 'Please enter your name';
+                                      return 'Please enter desired name';
                                     }
                                     return null;
                                   },

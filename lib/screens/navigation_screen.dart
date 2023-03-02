@@ -42,7 +42,7 @@ class _NavigationDrawersState extends State<NavigationDrawers> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.shopping_basket),
-            label: 'Appointments',
+            label: 'Appointment',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_circle),

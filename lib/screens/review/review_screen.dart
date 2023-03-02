@@ -14,7 +14,7 @@ class _ReviewScreenState extends State<ReviewScreen> {
   @override
   Widget build(BuildContext context) {
     final productData = ModalRoute.of(context)!.settings.arguments as Map;
-    List<Review> reviews = productData['reviews'];
+    List<Review> reviews = productData['review'];
     print(reviews.length);
     return Scaffold(
       backgroundColor: const Color(0xFFFFFFFF),

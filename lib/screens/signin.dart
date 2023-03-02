@@ -24,7 +24,7 @@ class _SignInState extends State<SignIn> {
           content: NotificationContent(
               id: 1,
               channelKey: 'basic_channel',
-              title: 'Sign in',
+              title: 'Sign IN',
               body: "this is sign in test notification"));
       Navigator.push(context, MaterialPageRoute(builder: (context) {
         return NavigationDrawers();

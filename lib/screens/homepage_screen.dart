@@ -70,7 +70,7 @@ class _HomePageState extends State<HomePage> {
               fillColor: Color.fromARGB(255, 238, 233, 233),
               prefixIcon:
                   const Icon(Icons.search, color: Colors.black, size: 16),
-              hintText: 'Find service of TrimMe',
+              hintText: 'Find services of TrimMe',
               hintStyle: const TextStyle(
                 fontSize: 10,
                 color: Colors.black,
